@@ -9,6 +9,10 @@ public class SnowScript : MonoBehaviour
     private void Awake() {
         _sprite = this.gameObject.GetComponent<SpriteRenderer>();
     }
+    /// <summary>
+    /// Change snow transparency/sprite based on snowStack value
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player" && snowStack > 0){
             snowStack--;
