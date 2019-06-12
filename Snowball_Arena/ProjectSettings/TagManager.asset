@@ -44,3 +44,6 @@ TagManager:
   - name: Snow
     uniqueID: 626645201
     locked: 0
+  - name: Player
+    uniqueID: 59172141
+    locked: 0
