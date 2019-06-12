@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
-{
+{   
+    [SerializeField]private float mapHeight,spriteHeight,mapWidth,spriteWidth;
+    [SerializeField]private Transform mapParent;
+    [SerializeField]private GameObject snowPrefab;
     private static GameManager _instance;
     public static GameManager Instance{
         get{
@@ -13,10 +16,10 @@ public class GameManager : MonoBehaviour
 			return _instance;
 		}
     }
-    private void Awake() {
-        for(int currentHeightNum = 0;currentheightNum< mapHeight/spriteHeight; currentheightNum++ ){
-            for(int currentWidthNum = 0; currentWidthNum< mapWidth/spriteWidth; currentWidthNum++){  
-                
+    private void Awake(){
+        for(int currentHeightNum = (int)-(mapHeight/spriteHeight)-1; currentHeightNum< (mapHeight/spriteHeight); currentHeightNum++ ){
+            for(int currentWidthNum = -(int)(mapWidth/spriteWidth)/2; currentWidthNum< (mapWidth/spriteWidth)/2; currentWidthNum++){  
+                Instantiate(snowPrefab,new Vector2((currentWidthNum * spriteWidth)+(spriteWidth/2), (currentHeightNum * spriteHeight)+(spriteWidth/2)), Quaternion.identity,mapParent);
             }
         }
     }
