@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 		}
     }
     private void Awake(){
-        
+        AddSnowToMap();
     }
     /// <summary>
     /// Instantiate the snow prefab based on the map size
