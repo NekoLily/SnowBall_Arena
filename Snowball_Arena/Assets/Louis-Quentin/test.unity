@@ -372,16 +372,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4534011f0e7762b4588bdaf55c9f401e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnowBallMultiShootPrefab: {fileID: 0}
-  SnowBallBigShootPrefab: {fileID: 0}
-  SnowBallPiercingShootPrefab: {fileID: 0}
+  snowBallMultiShootPrefab: {fileID: 6295255357666443271, guid: eba98f08a2199ea44ac31ae1932a5b56,
+    type: 3}
+  snowBallBigShootPrefab: {fileID: 7069602275180419581, guid: 59d63624329302a43807cc360fb9c64f,
+    type: 3}
+  snowBallPiercingShootPrefab: {fileID: 7744956199849820724, guid: 45c52040288c35a45ac747f0ca1fad40,
+    type: 3}
   _PlayerState: 0
-  DefaultShootForce: 10
-  OffsetIncreaseShootForce: 10
-  MaxShootForce: 100
-  DefaultChargeForce: 10
-  OffsetIncreaseChargeForce: 10
-  MaxChargeForce: 100
+  defaultShootForce: 10
+  offsetIncreaseShootForce: 10
+  maxShootForce: 100
+  defaultChargeForce: 10
+  offsetIncreaseChargeForce: 10
+  maxChargeForce: 100
 --- !u!50 &929991885
 Rigidbody2D:
   serializedVersion: 4

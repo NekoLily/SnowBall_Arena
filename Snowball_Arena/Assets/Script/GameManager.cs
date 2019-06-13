@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         AddSnowToMap();
         for(int i = 0; i<playerNumber;i++){
             GameObject tmpGameObject = Instantiate(playerPrefab, spawnPlayerPos1, playerPrefab.transform.rotation);
-            tmpGameObject.GetComponent<PlayerScript>().ChangeKeyCode(KeyCodeSave.Instance.GiveOneDimension(i));
+            tmpGameObject.GetComponent<PlayerScript>().playerKeyCode = KeyCodeSave.Instance.GiveOneDimension(i);
         }
         StartCoroutine(WaitBeforeShrinking());
     }
