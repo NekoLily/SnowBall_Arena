@@ -137,4 +137,8 @@ public class PlayerScript : MonoBehaviour
                 FireMode++;
         }
     }
+
+    public void ChangeKeyCode(string[] thisPlayerKeyCode){
+
+    }
 }

@@ -28,7 +28,7 @@ public class GamepadManager : MonoBehaviour
                 }
                 currentPlayer++;
                 if(currentPlayer == assignedJoystickButton.GetLength(1)){
-                    
+                    KeyCodeSave.Instance.joystickKeyCodeSaved = assignedJoystickButton;
                 }
             }
         }
