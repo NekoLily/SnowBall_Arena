@@ -19,9 +19,12 @@ public class SnowScript : MonoBehaviour
             Color tmpColor = new Color(_sprite.color.r,_sprite.color.g,_sprite.color.b, snowStack/4f);
             _sprite.color = tmpColor;
             //UpdateSprite();
+            other.gameObject.GetComponent<Scale>().IncreaseScale();
         }
     }
-
+    /// <summary>
+    /// Change sprite instead of transparency
+    /// </summary>
     private void UpdateSprite(){
         switch (snowStack){
             case 0:
