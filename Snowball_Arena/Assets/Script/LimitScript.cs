@@ -36,7 +36,7 @@ public class LimitScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Snow")
         {
-            other.gameObject.tag = "Lave";
+            other.GetComponent<SnowScript>().GetInZone();
             other.gameObject.GetComponent<SpriteRenderer>().sprite = lave;
             //Change sprite instead?
         }       
