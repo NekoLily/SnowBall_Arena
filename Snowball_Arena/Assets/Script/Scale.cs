@@ -7,6 +7,9 @@ public class Scale : MonoBehaviour
     [SerializeField]private float currentScale = 0;
     private Coroutine currentCoroutine;
     private bool coroutineStarted;
+    /// <summary>
+    /// Increase scale by taking snoww on the ground
+    /// </summary>
     public void IncreaseScale()
     {
         if (currentScale <= 200)
@@ -20,6 +23,9 @@ public class Scale : MonoBehaviour
             currentScale++;
         }
     }
+    /// <summary>
+    /// Decrease slower than increasing
+    /// </summary>
     private void DecreaseScaleInFire(){
         if (currentScale > 200)
         {
