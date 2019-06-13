@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]private Vector2 spawnPlayerPos2;
     [SerializeField]private Vector2 spawnPlayerPos3;
     [SerializeField]private Vector2 spawnPlayerPos4;
+    private int playerNumber;
 
     private static GameManager _instance;
     public static GameManager Instance{
@@ -23,10 +24,7 @@ public class GameManager : MonoBehaviour
 		}
     }
     private void Awake(){
-        AddSnowToMap();
-    }
-    private void Start() {
-        StartCoroutine(WaitBeforeShrinking());
+        DontDestroyOnLoad(this.gameObject);
     }
     /// <summary>
     /// Instantiate the snow prefab based on the map size
@@ -44,8 +42,13 @@ public class GameManager : MonoBehaviour
         LimitScript.Instance.canShrink = true;
     }
 
-    private void InstantiatePlayer()
+    private void SetupGame()
     {
-        Instantiate(playerPrefab, spawnPlayerPos1, playerPrefab.transform.rotation);
+        AddSnowToMap();
+        for(int i = 0; i<playerNumber;i++){
+            GameObject tmpGameObject = Instantiate(playerPrefab, spawnPlayerPos1, playerPrefab.transform.rotation);
+            tmpGameObject.GetComponent<PlayerScript>().ChangeKeyCode(KeyCodeSave.Instance.GiveOneDimension(i));
+        }
+        StartCoroutine(WaitBeforeShrinking());
     }
 }
