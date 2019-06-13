@@ -156,12 +156,12 @@ MonoBehaviour:
   snowBallPiercingShootPrefab: {fileID: 7744956199849820724, guid: 45c52040288c35a45ac747f0ca1fad40,
     type: 3}
   _PlayerState: 0
-  defaultShootForce: 1000
-  offsetIncreaseShootForce: 1000
-  maxShootForce: 5000
-  defaultChargeForce: 1000
-  offsetIncreaseChargeForce: 1000
-  maxChargeForce: 500
+  defaultShootForce: 200
+  offsetIncreaseShootForce: 50
+  maxShootForce: 500
+  defaultChargeForce: 100
+  offsetIncreaseChargeForce: 100
+  maxChargeForce: 300
   playerKeyCode:
   - 
   - 

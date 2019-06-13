@@ -54,13 +54,13 @@ public class Scale : MonoBehaviour
     {
         if (currentScale > 200)
         {
-            transform.localScale -= new Vector3(0.05F, 0.05F, 0);
-            currentScale -= 0.5f;
+            transform.localScale -= new Vector3(0.5F, 0.5F, 0);
+            currentScale -= 5f;
         }
         else if (currentScale > 0)
         {
-            transform.localScale -= new Vector3(0.06F, 0.06F, 0);
-            currentScale -= 0.5f;
+            transform.localScale -= new Vector3(0.3F, 0.3F, 0);
+            currentScale -= 5f;
         
         }
         if (currentScale<=0)

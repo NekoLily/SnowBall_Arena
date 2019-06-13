@@ -39,7 +39,7 @@ public class PlayerScript : MonoBehaviour
         float LeftBumper = Input.GetAxis(playerKeyCode[3]);
         float RightBumper = Input.GetAxis(playerKeyCode[4]);
 
-        Trigger = Input.GetAxis(playerKeyCode[2]);
+        Trigger = Input.GetAxisRaw(playerKeyCode[2]);
 
         ChangeFireMode(LeftBumper, RightBumper);
         MoveSnowBall(MoveDirection);
@@ -74,7 +74,7 @@ public class PlayerScript : MonoBehaviour
                 shootForce += offsetIncreaseShootForce;
             _PlayerState = PlayerState.LoadingShoot;
         }
-        else if (Trigger == 0 && _PlayerState == PlayerState.LoadingShoot)
+        else if (Trigger == 0 && _PlayerState == PlayerState.LoadingShoot && TargetDirection.x != 0 && TargetDirection.y != 0)
         {
             GameObject SnowBall;
             switch (FireMode)
@@ -88,10 +88,8 @@ public class PlayerScript : MonoBehaviour
                     foreach(Rigidbody2D multishoot in SnowBall.GetComponentsInChildren<Rigidbody2D>())
                     {
                         multishoot.AddForce(TargetDirection * shootForce);
-                    }
-                    
+                    }                  
                     break;
-
                 case 2:
                     SnowBall = Instantiate<GameObject>(snowBallPiercingShootPrefab, transform.position, transform.rotation);
                     SnowBall.GetComponent<Rigidbody2D>().AddForce(TargetDirection * shootForce);
