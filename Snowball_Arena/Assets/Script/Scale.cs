@@ -61,6 +61,11 @@ public class Scale : MonoBehaviour
         {
             transform.localScale -= new Vector3(0.06F, 0.06F, 0);
             currentScale -= 0.5f;
+        
+        }
+        if (currentScale<=0)
+        {
+            Destroy(gameObject);
         }
     }
     private void OnTriggerExit2D(Collider2D other)
