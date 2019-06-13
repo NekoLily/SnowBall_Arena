@@ -8,6 +8,7 @@ TagManager:
   - PlayerBaseScale
   - ArenaLimit
   - Munition
+  - Lave
   layers:
   - Default
   - TransparentFX
