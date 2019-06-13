@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {   
-    [SerializeField]private float mapHeight,spriteHeight,mapWidth,spriteWidth;
+    [SerializeField]private float mapHeight,spriteHeight,mapWidth,spriteWidth, secBeforeShrink;
     [SerializeField]private Transform mapParent;
     [SerializeField]private GameObject snowPrefab;
     private static GameManager _instance;
@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     private void Awake(){
         AddSnowToMap();
     }
+    private void Start() {
+        StartCoroutine(WaitBeforeShrinking());
+    }
     /// <summary>
     /// Instantiate the snow prefab based on the map size
     /// </summary>
@@ -28,5 +31,10 @@ public class GameManager : MonoBehaviour
                 Instantiate(snowPrefab,new Vector2((currentWidthNum * spriteWidth)+(spriteWidth/2), (currentHeightNum * spriteHeight)+(spriteWidth/2)), Quaternion.identity,mapParent);
             }
         }
+    }
+
+    IEnumerator WaitBeforeShrinking(){
+        yield return new WaitForSeconds(secBeforeShrink);
+        LimitScript.Instance.canShrink = true;
     }
 }

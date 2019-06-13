@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Snow
+  - PlayerBaseScale
+  - ArenaLimit
+  - Munition
   layers:
   - Default
   - TransparentFX

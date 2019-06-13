@@ -203,6 +203,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1076962556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1076962558}
+  - component: {fileID: 1076962557}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1076962557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076962556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e9ead36ad29b04cbe9b6723d6a8522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1076962558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076962556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.17337254, y: -0.09638895, z: -0.72924036}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1767899571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -270,5 +313,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4659595124266874628, guid: cf664197763f17b4e9be5a49df9a7882,
+        type: 3}
+      propertyPath: SnowBallMultiShootPrefab
+      value: 
+      objectReference: {fileID: 6295255357666443271, guid: eba98f08a2199ea44ac31ae1932a5b56,
+        type: 3}
+    - target: {fileID: 4659595124266874628, guid: cf664197763f17b4e9be5a49df9a7882,
+        type: 3}
+      propertyPath: SnowBallBigShootPrefab
+      value: 
+      objectReference: {fileID: 7069602275180419581, guid: 59d63624329302a43807cc360fb9c64f,
+        type: 3}
+    - target: {fileID: 4659595124266874628, guid: cf664197763f17b4e9be5a49df9a7882,
+        type: 3}
+      propertyPath: SnowBallPiercingShootPrefab
+      value: 
+      objectReference: {fileID: 7744956199849820724, guid: 45c52040288c35a45ac747f0ca1fad40,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf664197763f17b4e9be5a49df9a7882, type: 3}
