@@ -36,12 +36,15 @@ public class Scale : MonoBehaviour
             {
                 case 0:
                     currentScale = currentScale * 0.80f;
+                    transform.localScale -= new Vector3(0.06F, 0.06F, 0);
                     break;
                 case 1:
                     currentScale = currentScale * 0.90f;
+                    transform.localScale -= new Vector3(0.04F, 0.04F, 0);
                     break;
                 case 2:
                     currentScale = currentScale * 0.90f;
+                    transform.localScale -= new Vector3(0.04F, 0.04F, 0);
                     break;
             }
         }
