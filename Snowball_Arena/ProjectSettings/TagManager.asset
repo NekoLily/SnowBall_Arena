@@ -7,6 +7,7 @@ TagManager:
   - Snow
   - PlayerBaseScale
   - ArenaLimit
+  - Munition
   layers:
   - Default
   - TransparentFX
@@ -41,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3944915079
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
