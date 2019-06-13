@@ -16,7 +16,7 @@ public class SnowScript : MonoBehaviour
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.tag == "Player" && snowStack > 0 && inZone){
+        if(other.gameObject.tag == "Player" && snowStack > 0 && !inZone){
             snowStack--;
             Color tmpColor = new Color(_sprite.color.r,_sprite.color.g,_sprite.color.b, snowStack/4f);
             _sprite.color = tmpColor;
