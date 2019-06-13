@@ -272,13 +272,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4659595124266874628, guid: cf664197763f17b4e9be5a49df9a7882,
         type: 3}
-      propertyPath: OffsetIncreaseChargeForce
-      value: 100
-      objectReference: {fileID: 0}
+      propertyPath: SnowBallMultiShootPrefab
+      value: 
+      objectReference: {fileID: 6295255357666443271, guid: eba98f08a2199ea44ac31ae1932a5b56,
+        type: 3}
     - target: {fileID: 4659595124266874628, guid: cf664197763f17b4e9be5a49df9a7882,
         type: 3}
-      propertyPath: DefaultChargeForce
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: SnowBallBigShootPrefab
+      value: 
+      objectReference: {fileID: 7069602275180419581, guid: 59d63624329302a43807cc360fb9c64f,
+        type: 3}
+    - target: {fileID: 4659595124266874628, guid: cf664197763f17b4e9be5a49df9a7882,
+        type: 3}
+      propertyPath: SnowBallPiercingShootPrefab
+      value: 
+      objectReference: {fileID: 7744956199849820724, guid: 45c52040288c35a45ac747f0ca1fad40,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf664197763f17b4e9be5a49df9a7882, type: 3}
