@@ -19,5 +19,6 @@ public class KeyCodeSave
         for(int i = 0; i <7;i++){
             tmpString[i] = joystickKeyCodeSaved[playerNumber,i];
         }
+        return tmpString;
     }
 }
