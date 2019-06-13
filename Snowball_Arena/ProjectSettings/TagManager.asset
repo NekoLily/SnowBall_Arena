@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Snow
   - PlayerBaseScale
+  - ArenaLimit
   layers:
   - Default
   - TransparentFX
