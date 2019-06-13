@@ -91,28 +91,23 @@ public class PlayerScript : MonoBehaviour
             {
                 case 0:
                     SnowBall = Instantiate<GameObject>(SnowBallBigShootPrefab, transform.position, transform.rotation);
-                    SnowBall.GetComponent<Rigidbody2D>().AddForce(TargetDirection*1000 * ShootForce);
-                    
+                    SnowBall.GetComponent<Rigidbody2D>().AddForce(TargetDirection * ShootForce);                   
                     break;
-
                 case 1:
                     SnowBall = Instantiate<GameObject>(SnowBallMultiShootPrefab, transform.position, transform.rotation);
                     foreach(Rigidbody2D multishoot in SnowBall.GetComponentsInChildren<Rigidbody2D>())
                     {
-                        multishoot.AddForce(TargetDirection*1000 * ShootForce);
+                        multishoot.AddForce(TargetDirection * ShootForce);
                     }
                     
                     break;
 
                 case 2:
                     SnowBall = Instantiate<GameObject>(SnowBallPiercingShootPrefab, transform.position, transform.rotation);
-                    SnowBall.GetComponent<Rigidbody2D>().AddForce(TargetDirection*1000* ShootForce);
+                    SnowBall.GetComponent<Rigidbody2D>().AddForce(TargetDirection * ShootForce);
                     break;
-
-
             }
-            
-            
+            GetComponent<Scale>().DecreaseByShoot(FireMode);          
             ShootForce = DefaultShootForce;
             _PlayerState = PlayerState.Moving;
         }
