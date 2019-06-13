@@ -4,25 +4,32 @@ using UnityEngine;
 
 public enum PlayerState
 {
-    Idle, Pause, Moving, Loading,
+    Moving, Pause, LoadingCharge, LoadingShoot,
 }
 
 public class PlayerScript : MonoBehaviour
 {
     protected Rigidbody2D _Rigidbody2D;
     public GameObject SnowBallShootPrefab;
-    public PlayerState _PlayerState = PlayerState.Idle;
+    public PlayerState _PlayerState = PlayerState.Moving;
 
-    
-    public float DefaultShootForce = 10;
     float ShootForce;
-    public float IncreaseShootForce = 10;
+    public float DefaultShootForce = 10;
+    public float OffsetIncreaseShootForce = 10;
     public float MaxShootForce = 100;
+
+    float ChargeForce;
+    public float DefaultChargeForce = 10;
+    public float OffsetIncreaseChargeForce = 10;
+    public float MaxChargeForce = 100;
+
+    private float Trigger = 0;
 
     private void Start()
     {
         _Rigidbody2D = GetComponent<Rigidbody2D>();
         ShootForce = DefaultShootForce;
+        ChargeForce = DefaultChargeForce;
     }
 
     // Update is called once per frame
@@ -36,32 +43,46 @@ public class PlayerScript : MonoBehaviour
         Vector2 MoveDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         Vector2 TargetDirection = new Vector2(Input.GetAxis("HorizontalTarget"), Input.GetAxis("VerticalTarget"));
 
-        float TriggerShoot = Input.GetAxis("Fire1");
-        Debug.Log(TargetDirection);
+        Trigger = Input.GetAxis("Trigger");
+
         MoveSnowBall(MoveDirection);
-        Shoot(TriggerShoot, TargetDirection);
+        Shoot(TargetDirection);
     }
 
     private void MoveSnowBall(Vector2 Direction)
     {
-        if (_PlayerState == PlayerState.Idle)
+        if (Trigger == -1 && _PlayerState == PlayerState.Moving)
+        {        
+            if (ChargeForce < MaxChargeForce)
+                ChargeForce += OffsetIncreaseChargeForce;
+            _PlayerState = PlayerState.LoadingCharge;
+        }
+        else if (Trigger == 0 && _PlayerState == PlayerState.LoadingCharge)
+        {           
+            _Rigidbody2D.AddForce(Direction * ChargeForce);
+            ChargeForce = DefaultChargeForce;
+            _PlayerState = PlayerState.Moving;
+        }
+        else if (Trigger == 0 && _PlayerState == PlayerState.Moving)
             _Rigidbody2D.AddForce(Direction);
+
     }
 
-    private void Shoot(float Trigger, Vector2 TargetDirection)
+    private void Shoot(Vector2 TargetDirection)
     {
-        if (Trigger == 1)
-        {
-            _PlayerState = PlayerState.Loading;
+        Debug.Log(Trigger + " " + _PlayerState);
+        if (Trigger == 1 && _PlayerState == PlayerState.Moving)
+        {          
             if (ShootForce < MaxShootForce)
-            ShootForce += IncreaseShootForce;
+                ShootForce += OffsetIncreaseShootForce;
+            _PlayerState = PlayerState.LoadingShoot;
         }
-        if (Trigger == 0 && _PlayerState == PlayerState.Loading)
-        {
-            _PlayerState = PlayerState.Idle;
+        else if (Trigger == 0 && _PlayerState == PlayerState.LoadingShoot)
+        {            
             GameObject SnowBall = Instantiate<GameObject>(SnowBallShootPrefab, transform.position, transform.rotation);
             SnowBall.GetComponent<Rigidbody2D>().AddForce(TargetDirection * ShootForce);
             ShootForce = DefaultShootForce;
+            _PlayerState = PlayerState.Moving;
         }
     }
 }

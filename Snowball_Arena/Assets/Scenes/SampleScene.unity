@@ -270,5 +270,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4659595124266874628, guid: cf664197763f17b4e9be5a49df9a7882,
+        type: 3}
+      propertyPath: OffsetIncreaseChargeForce
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659595124266874628, guid: cf664197763f17b4e9be5a49df9a7882,
+        type: 3}
+      propertyPath: DefaultChargeForce
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf664197763f17b4e9be5a49df9a7882, type: 3}
