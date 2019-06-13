@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LimitScript : MonoBehaviour
 {   
     private EdgeCollider2D limitCollider;
     public bool canShrink{get;set;}=false;
+    public Sprite lave;
+    public void Start()
+    {
+      
+    }
     private static LimitScript _instance;
     public static LimitScript Instance{
         get{
@@ -29,7 +35,7 @@ public class LimitScript : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other) {
         if(other.gameObject.tag == "Snow"){
-            Destroy(other.gameObject);
+            GetComponent<Image>().sprite = lave;
             //Change sprite instead?
         }       
     }
