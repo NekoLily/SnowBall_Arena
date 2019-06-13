@@ -173,11 +173,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 623156945}
-  - component: {fileID: 623156944}
   - component: {fileID: 623156946}
+  - component: {fileID: 623156944}
+  - component: {fileID: 623156947}
   m_Layer: 0
   m_Name: ArenaLimit
-  m_TagString: Untagged
+  m_TagString: ArenaLimit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,11 +199,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -17, y: -9}
-  - {x: -17, y: 9}
   - {x: 17, y: 9}
-  - {x: 17, y: -9}
+  - {x: -17, y: 9}
   - {x: -17, y: -9}
+  - {x: 17, y: -9}
+  - {x: 17, y: 9}
 --- !u!4 &623156945
 Transform:
   m_ObjectHideFlags: 0
@@ -229,6 +230,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33343b739a7ff64a8acb3f9461ed22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &623156947
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623156943}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &771616079
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +284,7 @@ MonoBehaviour:
   spriteHeight: 0.5
   mapWidth: 36
   spriteWidth: 0.5
-  secBeforeShrink: 30
+  secBeforeShrink: 5
   mapParent: {fileID: 926340371}
   snowPrefab: {fileID: 4811178739509565871, guid: 718eddcfda526c44497d99e4e0b48fbb,
     type: 3}

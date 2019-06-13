@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LimitScript : MonoBehaviour
 {   
-    private Transform limitTransform;
+    private EdgeCollider2D limitCollider;
     public bool canShrink{get;set;}=false;
     private static LimitScript _instance;
     public static LimitScript Instance{
@@ -17,19 +17,17 @@ public class LimitScript : MonoBehaviour
     }
 
     private void Awake() {
-        limitTransform = this.gameObject.GetComponent<Transform>();
+        limitCollider = this.gameObject.GetComponent<EdgeCollider2D>();
     }
     private void FixedUpdate() {
         if(canShrink){
-            limitTransform.localScale -= new Vector3(0.001f,0.001f,0);
+            limitCollider.edgeRadius += 0.01f;
+            if(limitCollider.edgeRadius>9.9f){
+                canShrink = false;
+            }
         }
     }
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.tag == "PlayerBaseScale"){
-            Debug.Log("Lose");
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other) {
+    private void OnTriggerStay2D(Collider2D other) {
         if(other.gameObject.tag == "Snow"){
             Destroy(other.gameObject);
             //Change sprite instead?
