@@ -288,6 +288,11 @@ MonoBehaviour:
   mapParent: {fileID: 926340371}
   snowPrefab: {fileID: 4811178739509565871, guid: 718eddcfda526c44497d99e4e0b48fbb,
     type: 3}
+  playerPrefab: {fileID: 0}
+  spawnPlayerPos1: {x: -16, y: 8}
+  spawnPlayerPos2: {x: 16, y: 8}
+  spawnPlayerPos3: {x: -16, y: -8}
+  spawnPlayerPos4: {x: 16, y: -8}
 --- !u!4 &771616081
 Transform:
   m_ObjectHideFlags: 0
@@ -474,7 +479,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929991883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.24, y: -0.94, z: 0}
+  m_LocalPosition: {x: -16, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -509,12 +514,12 @@ PrefabInstance:
     - target: {fileID: 6567276545916153112, guid: ceb3e4467184ddb468b7011c5568a975,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.24
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 6567276545916153112, guid: ceb3e4467184ddb468b7011c5568a975,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.94
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6567276545916153112, guid: ceb3e4467184ddb468b7011c5568a975,
         type: 3}

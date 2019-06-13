@@ -7,6 +7,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]private float mapHeight,spriteHeight,mapWidth,spriteWidth, secBeforeShrink;
     [SerializeField]private Transform mapParent;
     [SerializeField]private GameObject snowPrefab;
+    [SerializeField]private GameObject playerPrefab;
+    [SerializeField]private Vector2 spawnPlayerPos1;
+    [SerializeField]private Vector2 spawnPlayerPos2;
+    [SerializeField]private Vector2 spawnPlayerPos3;
+    [SerializeField]private Vector2 spawnPlayerPos4;
+
     private static GameManager _instance;
     public static GameManager Instance{
         get{
@@ -36,5 +42,10 @@ public class GameManager : MonoBehaviour
     IEnumerator WaitBeforeShrinking(){
         yield return new WaitForSeconds(secBeforeShrink);
         LimitScript.Instance.canShrink = true;
+    }
+
+    private void InstantiatePlayer()
+    {
+        Instantiate(playerPrefab, spawnPlayerPos1, playerPrefab.transform.rotation);
     }
 }
