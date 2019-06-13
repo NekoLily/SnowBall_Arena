@@ -149,19 +149,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4534011f0e7762b4588bdaf55c9f401e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnowBallMultiShootPrefab: {fileID: 6295255357666443271, guid: eba98f08a2199ea44ac31ae1932a5b56,
+  snowBallMultiShootPrefab: {fileID: 6295255357666443271, guid: eba98f08a2199ea44ac31ae1932a5b56,
     type: 3}
-  SnowBallBigShootPrefab: {fileID: 7069602275180419581, guid: 59d63624329302a43807cc360fb9c64f,
+  snowBallBigShootPrefab: {fileID: 7069602275180419581, guid: 59d63624329302a43807cc360fb9c64f,
     type: 3}
-  SnowBallPiercingShootPrefab: {fileID: 7744956199849820724, guid: 45c52040288c35a45ac747f0ca1fad40,
+  snowBallPiercingShootPrefab: {fileID: 7744956199849820724, guid: 45c52040288c35a45ac747f0ca1fad40,
     type: 3}
   _PlayerState: 0
-  DefaultShootForce: 10
-  OffsetIncreaseShootForce: 10
-  MaxShootForce: 100
-  DefaultChargeForce: 0
-  OffsetIncreaseChargeForce: 100
-  MaxChargeForce: 100
+  defaultShootForce: 10
+  offsetIncreaseShootForce: 10
+  maxShootForce: 100
+  defaultChargeForce: 10
+  offsetIncreaseChargeForce: 10
+  maxChargeForce: 100
+  playerKeyCode:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
 --- !u!114 &1122533410631272267
 MonoBehaviour:
   m_ObjectHideFlags: 0

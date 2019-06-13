@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
     private float defaultChargeForce = 10,offsetIncreaseChargeForce = 10,maxChargeForce = 100;
     private float Trigger = 0;
     private int FireMode = 0;
-    public string[] playerKeyCode {get;set;}= new string[7];
+    public string[] playerKeyCode = new string[7];
     private void Start()
     {
         _Rigidbody2D = GetComponent<Rigidbody2D>();
