@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Scale : MonoBehaviour
 {
-    int currentScale = 0;
+    public int currentScale = 0;
     public void IncreaseScale()
     {
         if (currentScale <= 200)
