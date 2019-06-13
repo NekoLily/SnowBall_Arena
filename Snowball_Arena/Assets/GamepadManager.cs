@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GamepadManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class GamepadManager : MonoBehaviour
     [SerializeField]private List<KeyCode> joystickAlreadyInArray;
     public string[,] assignedJoystickButton{get;set;}
     private int currentPlayer = 0;
+    [SerializeField] private GameObject[] PlayerStatusList;
     private void Awake() {
         assignedJoystickButton = new string[GameManager.Instance.playerNumber,7];
         joystickAlreadyInArray = new List<KeyCode>();
@@ -24,6 +26,7 @@ public class GamepadManager : MonoBehaviour
         {
             if (Input.GetKeyDown(keystart) && (currentPlayer == 0 || !CheckIfInArray(keystart)))
             {
+                PlayerStatusList[currentPlayer].GetComponent<Text>().text = "Ready !";
                 Debug.Log(keystart.ToString().Substring(8,1));
                 joystickAlreadyInArray.Add(keystart);
                 string tmpJoystickButton = keystart.ToString().Substring(8,1);
