@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3153966793758709582}
   - component: {fileID: 2651680914940051001}
   - component: {fileID: 4659595124266874628}
+  - component: {fileID: 1122533410631272267}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -69,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 59172141
+  m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -148,9 +149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4534011f0e7762b4588bdaf55c9f401e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnowBallMultiShootPrefab: {fileID: 0}
-  SnowBallBigShootPrefab: {fileID: 0}
-  SnowBallPiercingShootPrefab: {fileID: 0}
+  SnowBallMultiShootPrefab: {fileID: 6295255357666443271, guid: eba98f08a2199ea44ac31ae1932a5b56,
+    type: 3}
+  SnowBallBigShootPrefab: {fileID: 7069602275180419581, guid: 59d63624329302a43807cc360fb9c64f,
+    type: 3}
+  SnowBallPiercingShootPrefab: {fileID: 7744956199849820724, guid: 45c52040288c35a45ac747f0ca1fad40,
+    type: 3}
   _PlayerState: 0
   DefaultShootForce: 10
   OffsetIncreaseShootForce: 10
@@ -158,3 +162,16 @@ MonoBehaviour:
   DefaultChargeForce: 0
   OffsetIncreaseChargeForce: 100
   MaxChargeForce: 100
+--- !u!114 &1122533410631272267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5118618371274219942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73d597da535cb140b5446db0c86b6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScale: 0
