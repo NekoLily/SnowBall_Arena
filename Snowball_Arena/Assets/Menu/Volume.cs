@@ -5,9 +5,9 @@ using UnityEngine.Audio;
 
 public class Volume : MonoBehaviour
 {
-    public AudioMixer audioMixer;
-    
-    public AudioClip backsound;
+    [SerializeField] private AudioMixer audioMixer;
+
+    [SerializeField] private AudioClip backsound;
     private AudioSource source;
     public void SetVolume (float volume)
     {
