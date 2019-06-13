@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float mapHeight, spriteHeight, mapWidth, spriteWidth, secBeforeShrink;
-    [SerializeField] private Transform mapParent;
+    private Transform mapParent;
     [SerializeField] private GameObject snowPrefab;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Vector2 spawnPlayerPos1;
     [SerializeField] private Vector2 spawnPlayerPos2;
     [SerializeField] private Vector2 spawnPlayerPos3;
     [SerializeField] private Vector2 spawnPlayerPos4;
-    private int playerNumber = 2;
+    public int playerNumber{get;set;}= 2;
 
     public void IncreasePlayerNumber()
     {
@@ -69,13 +70,14 @@ public class GameManager : MonoBehaviour
         LimitScript.Instance.canShrink = true;
     }
 
-    private void SetupGame()
-    {
+    public void SetupGame()
+    {    
+        mapParent = GameObject.Find("Map").GetComponent<Transform>();
         AddSnowToMap();
         for (int i = 0; i < playerNumber; i++)
         {
             GameObject tmpGameObject = Instantiate(playerPrefab, spawnPlayerPos1, playerPrefab.transform.rotation);
-            tmpGameObject.GetComponent<PlayerScript>().ChangeKeyCode(KeyCodeSave.Instance.GiveOneDimension(i));
+            tmpGameObject.GetComponent<PlayerScript>().playerKeyCode = KeyCodeSave.Instance.GiveOneDimension(i);
         }
         StartCoroutine(WaitBeforeShrinking());
     }
