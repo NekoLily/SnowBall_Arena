@@ -27,7 +27,7 @@ public class SnowballAmmoScript : MonoBehaviour
     {
         if (Collision.gameObject.tag == "Player")
         {
-            GetComponent<CircleCollider2D>().isTrigger = false;
+            GetComponent<CapsuleCollider2D>().isTrigger = false;
         }
     }
 }
