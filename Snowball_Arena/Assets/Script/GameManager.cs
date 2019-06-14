@@ -10,10 +10,7 @@ public class GameManager : MonoBehaviour
     private Transform mapParent;
     [SerializeField] private GameObject snowPrefab;
     [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private Vector2 spawnPlayerPos1;
-    [SerializeField] private Vector2 spawnPlayerPos2;
-    [SerializeField] private Vector2 spawnPlayerPos3;
-    [SerializeField] private Vector2 spawnPlayerPos4;
+    [SerializeField] private Vector2[] spawnPos;
     public int playerNumber{get;set;}= 2;
 
     public void IncreasePlayerNumber()
@@ -73,12 +70,29 @@ public class GameManager : MonoBehaviour
     public void SetupGame()
     {    
         mapParent = GameObject.Find("Map").GetComponent<Transform>();
+        spawnPos = new Vector2[playerNumber];
+        spawnPos = FindChildVector2(GameObject.Find("SpawnPos").GetComponent<Transform>());
         AddSnowToMap();
         for (int i = 0; i < playerNumber; i++)
         {
-            GameObject tmpGameObject = Instantiate(playerPrefab, spawnPlayerPos1, playerPrefab.transform.rotation);
+            GameObject tmpGameObject = Instantiate(playerPrefab, spawnPos[i], playerPrefab.transform.rotation);
             tmpGameObject.GetComponent<PlayerScript>().playerKeyCode = KeyCodeSave.Instance.GiveOneDimension(i);
         }
         StartCoroutine(WaitBeforeShrinking());
+    }
+
+    private Vector2[] FindChildVector2(Transform parentTransform){
+        int currentChild = 0;
+        Vector2[] tmpChildVector2 = new Vector2[playerNumber];
+        foreach (Transform transform in parentTransform) {
+            if (transform != parentTransform){
+                tmpChildVector2[currentChild] = transform.position;
+                currentChild++;
+                if(currentChild == playerNumber){
+                    break;
+                }
+            }
+        }  
+        return tmpChildVector2;         
     }
 }
