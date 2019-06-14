@@ -4,24 +4,18 @@ using UnityEngine;
 
 public class Scale : MonoBehaviour
 {
+    
     private float currentScale = 0;
-    [SerializeField]private Coroutine currentCoroutine;
+    [SerializeField]private float baseScaleModifier = 0.0005f;
+    private Coroutine currentCoroutine;
     private bool coroutineStarted;
     /// <summary>
     /// Increase scale by taking snoww on the ground
     /// </summary>
     public void IncreaseScale()
     {
-        if (currentScale <= 200)
-        {
-            transform.localScale += new Vector3(0.005F, 0.005F, 0);
-            currentScale++;
-        }
-        else if (currentScale <= 400)
-        {
-            transform.localScale += new Vector3(0.004F, 0.004F, 0);
-            currentScale++;
-        }
+        transform.localScale += new Vector3(baseScaleModifier, baseScaleModifier, 0);
+        currentScale++;
     }
     /// <summary>
     /// Decrease slower than increasing
@@ -30,21 +24,21 @@ public class Scale : MonoBehaviour
 
     public void DecreaseByShoot(int Firemode)
     {
-        if (currentScale < 400 * 0.20f)
+        //if (currentScale < 400 * 0.20f)
         {
             switch (Firemode)
             {
                 case 0:
-                    currentScale = currentScale * 0.80f;
-                    transform.localScale -= new Vector3(0.06F, 0.06F, 0);
+                    currentScale -= currentScale * 0.20f;
+                    transform.localScale -= new Vector3(transform.localScale.x*0.2f, transform.localScale.y * 0.2f, 0);
                     break;
                 case 1:
-                    currentScale = currentScale * 0.90f;
-                    transform.localScale -= new Vector3(0.04F, 0.04F, 0);
+                    currentScale -= currentScale * 0.15f;
+                    transform.localScale -= new Vector3(transform.localScale.x*0.15f, transform.localScale.x*0.15f, 0);
                     break;
                 case 2:
-                    currentScale = currentScale * 0.90f;
-                    transform.localScale -= new Vector3(0.04F, 0.04F, 0);
+                    currentScale -= currentScale * 0.15f;
+                    transform.localScale -= new Vector3(transform.localScale.x*0.15f, transform.localScale.x*0.15f, 0);
                     break;
             }
         }
@@ -52,22 +46,13 @@ public class Scale : MonoBehaviour
 
     private void DecreaseScaleInFire()
     {
-        if (currentScale > 200)
-        {
-            if (transform.localScale.x > 0 && transform.localScale.y > 0)
-                transform.localScale -= new Vector3(0.8F, 0.8F, 0);
-            currentScale -= 0.5f;
+        if (transform.localScale.x > 0 && transform.localScale.y > 0){
+            transform.localScale -= new Vector3(baseScaleModifier*5f, baseScaleModifier*5, 0);
         }
-        else if (currentScale > 0)
-        {
-            if (transform.localScale.x > 0 && transform.localScale.y > 0)
-                transform.localScale -= new Vector3(0.5F, 0.5F, 0);
-            currentScale -= 0.5f;
-
-        }
+        currentScale -= 5f;
         if (currentScale <= 0)
         {
-            GameManager.Instance.GameOver();
+            GameManager.Instance.TryGameOver(this.gameObject);
             Destroy(gameObject);
         }
     }

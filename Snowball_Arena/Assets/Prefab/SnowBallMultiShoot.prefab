@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3321122091892318627}
   - component: {fileID: 5806190355140451710}
   - component: {fileID: 2941201442517867652}
-  - component: {fileID: 1846323176818564012}
+  - component: {fileID: 181805952196381484}
   m_Layer: 0
   m_Name: SnowBall
   m_TagString: Munition
@@ -114,9 +114,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &1846323176818564012
-CircleCollider2D:
+  m_Constraints: 4
+--- !u!70 &181805952196381484
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -128,9 +128,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0000009536743}
-  serializedVersion: 2
-  m_Radius: 5
+  m_Offset: {x: 0, y: -0.000038146973}
+  m_Size: {x: 10, y: 8.48}
+  m_Direction: 0
 --- !u!1 &3678547641620518762
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 3405189320025157536}
   - component: {fileID: 5892093744421671805}
   - component: {fileID: 2992193865191576199}
-  - component: {fileID: 7794669693177054262}
+  - component: {fileID: 8285054798707312355}
   m_Layer: 0
   m_Name: SnowBall
   m_TagString: Munition
@@ -245,9 +245,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &7794669693177054262
-CircleCollider2D:
+  m_Constraints: 4
+--- !u!70 &8285054798707312355
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -259,9 +259,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000038146973, y: 0}
-  serializedVersion: 2
-  m_Radius: 5
+  m_Offset: {x: 0, y: 0.000038146973}
+  m_Size: {x: 10.000001, y: 8.4800005}
+  m_Direction: 0
 --- !u!1 &5249720399637193144
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 6095546030153455986}
   - component: {fileID: 3031766416909231535}
   - component: {fileID: 5931375962792109141}
-  - component: {fileID: 1452069140438506080}
+  - component: {fileID: 7854924332571366002}
   m_Layer: 0
   m_Name: SnowBall
   m_TagString: Munition
@@ -376,9 +376,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &1452069140438506080
-CircleCollider2D:
+  m_Constraints: 4
+--- !u!70 &7854924332571366002
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -390,9 +390,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000038146973, y: -0.0000009536743}
-  serializedVersion: 2
-  m_Radius: 5
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 10.000001, y: 8.4800005}
+  m_Direction: 0
 --- !u!1 &8780583148576352717
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +402,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 286574358406354074}
-  - component: {fileID: 7653959813185143614}
   m_Layer: 0
   m_Name: SnowBallMultiShoot
   m_TagString: Munition
@@ -427,16 +426,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7653959813185143614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8780583148576352717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8228bb362e7c8e848a6a8bd2acb4a61b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forcemulti: 0
