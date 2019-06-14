@@ -42,9 +42,8 @@ public class PlayerScript : MonoBehaviour
         float RightBumper = Input.GetAxis(playerKeyCode[4]);
 
         Trigger = Input.GetAxisRaw(playerKeyCode[2]);
-
         ChangeFireMode(LeftBumper, RightBumper);
-        if (_PlayerState == PlayerState.Pause)
+        if (_PlayerState == PlayerState.Moving)
         {
             MoveSnowBall(MoveDirection);
             Shoot(TargetDirection);

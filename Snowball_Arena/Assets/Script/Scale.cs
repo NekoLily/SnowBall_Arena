@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Scale : MonoBehaviour
 {
-    [SerializeField] private float currentScale = 0;
-    private Coroutine currentCoroutine;
+    private float currentScale = 0;
+    [SerializeField]private Coroutine currentCoroutine;
     private bool coroutineStarted;
     /// <summary>
     /// Increase scale by taking snoww on the ground
@@ -56,13 +56,13 @@ public class Scale : MonoBehaviour
         {
             if (transform.localScale.x > 0 && transform.localScale.y > 0)
                 transform.localScale -= new Vector3(0.8F, 0.8F, 0);
-            currentScale -= 10f;
+            currentScale -= 0.5f;
         }
         else if (currentScale > 0)
         {
             if (transform.localScale.x > 0 && transform.localScale.y > 0)
                 transform.localScale -= new Vector3(0.5F, 0.5F, 0);
-            currentScale -= 10f;
+            currentScale -= 0.5f;
 
         }
         if (currentScale <= 0)
