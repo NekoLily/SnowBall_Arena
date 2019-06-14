@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 61268564576fa804a933843a93e186e1
   - enabled: 1
-    path: Assets/Louis-Quentin/test.unity
+    path: Assets/Scenes/test.unity
     guid: b97b0f695302b8841bae1d80bb29e26d
   m_configObjects: {}
