@@ -780,7 +780,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320984231}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 81d764b6c329fb74bb590a0f55da1480,
     type: 2}
@@ -2913,6 +2913,11 @@ MonoBehaviour:
   playerPrefab: {fileID: 5118618371274219942, guid: cf664197763f17b4e9be5a49df9a7882,
     type: 3}
   spawnPos: []
+  playerColorArray:
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  - {r: 1, g: 0, b: 1, a: 1}
 --- !u!4 &1129857506
 Transform:
   m_ObjectHideFlags: 0
