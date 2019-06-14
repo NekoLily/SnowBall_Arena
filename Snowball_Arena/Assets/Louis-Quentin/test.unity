@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 623156946}
   - component: {fileID: 623156947}
   - component: {fileID: 623156944}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ArenaLimit
   m_TagString: ArenaLimit
   m_Icon: {fileID: 0}
