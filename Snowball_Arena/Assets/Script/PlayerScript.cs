@@ -37,7 +37,8 @@ public class PlayerScript : MonoBehaviour
        
         Vector2 MoveDirection = new Vector2(Input.GetAxis(playerKeyCode[0]), Input.GetAxis(playerKeyCode[1]));
         Vector2 TargetDirection = new Vector2(Input.GetAxis(playerKeyCode[5]), Input.GetAxis(playerKeyCode[6]));
-
+        //transform.LookAt(transform.position + new Vector3(TargetDirection.x, TargetDirection.y, 0));
+        
         float LeftBumper = Input.GetAxis(playerKeyCode[3]);
         float RightBumper = Input.GetAxis(playerKeyCode[4]);
 
@@ -87,17 +88,20 @@ public class PlayerScript : MonoBehaviour
             {
                 case 0:
                     SnowBall = Instantiate<GameObject>(snowBallBigShootPrefab, transform.position, transform.rotation);
+                    SnowBall.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(TargetDirection.y, TargetDirection.x) * Mathf.Rad2Deg);
                     SnowBall.GetComponent<Rigidbody2D>().AddForce(TargetDirection * shootForce);                   
                     break;
                 case 1:
                     SnowBall = Instantiate<GameObject>(snowBallMultiShootPrefab, transform.position, transform.rotation);
-                    foreach(Rigidbody2D multishoot in SnowBall.GetComponentsInChildren<Rigidbody2D>())
+                    SnowBall.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(TargetDirection.y, TargetDirection.x) * Mathf.Rad2Deg);
+                    foreach (Rigidbody2D multishoot in SnowBall.GetComponentsInChildren<Rigidbody2D>())
                     {
                         multishoot.AddForce(TargetDirection * shootForce);
                     }                  
                     break;
                 case 2:
                     SnowBall = Instantiate<GameObject>(snowBallPiercingShootPrefab, transform.position, transform.rotation);
+                    SnowBall.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(TargetDirection.y, TargetDirection.x) * Mathf.Rad2Deg);
                     SnowBall.GetComponent<Rigidbody2D>().AddForce(TargetDirection * shootForce);
                     break;
             }

@@ -24,21 +24,21 @@ public class Scale : MonoBehaviour
 
     public void DecreaseByShoot(int Firemode)
     {
-        if (currentScale < 400 * 0.20f)
+        //if (currentScale < 400 * 0.20f)
         {
             switch (Firemode)
             {
                 case 0:
-                    currentScale = currentScale * 0.80f;
-                    transform.localScale -= new Vector3(transform.localScale.x*0.8f, transform.localScale.y * 0.8f, 0);
+                    currentScale -= currentScale * 0.20f;
+                    transform.localScale -= new Vector3(transform.localScale.x*0.2f, transform.localScale.y * 0.2f, 0);
                     break;
                 case 1:
-                    currentScale = currentScale * 0.90f;
-                    transform.localScale -= new Vector3(transform.localScale.x*0.9f, transform.localScale.x*0.9f, 0);
+                    currentScale -= currentScale * 0.15f;
+                    transform.localScale -= new Vector3(transform.localScale.x*0.15f, transform.localScale.x*0.15f, 0);
                     break;
                 case 2:
-                    currentScale = currentScale * 0.90f;
-                    transform.localScale -= new Vector3(transform.localScale.x*0.9f, transform.localScale.x*0.9f, 0);
+                    currentScale -= currentScale * 0.15f;
+                    transform.localScale -= new Vector3(transform.localScale.x*0.15f, transform.localScale.x*0.15f, 0);
                     break;
             }
         }
