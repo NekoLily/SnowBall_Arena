@@ -67,6 +67,7 @@ public class Scale : MonoBehaviour
         }
         if (currentScale <= 0)
         {
+            GameManager.Instance.GameOver();
             Destroy(gameObject);
         }
     }
