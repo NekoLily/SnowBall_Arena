@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
             if (GameObject.FindGameObjectsWithTag("Player").Length == 1)
             {
                 gameIsStarted = false;
+                SceneManager.LoadScene("fin");
             }
         }
     }
