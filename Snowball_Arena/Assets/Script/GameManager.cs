@@ -11,7 +11,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject snowPrefab;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Vector2[] spawnPlayerPos;
+    private bool gameIsStarted = false;
     public int playerNumber{get;set;}= 2;
+
+    private void Update()
+    {
+        if (gameIsStarted)
+        {
+            if (GameObject.FindGameObjectsWithTag("Player").Length == 1);
+            {
+                gameIsStarted = false;
+            }
+        }
+    }
 
     public void IncreasePlayerNumber()
     {
@@ -75,6 +87,7 @@ public class GameManager : MonoBehaviour
         GameObject[] playerArray = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in playerArray)
             player.GetComponent<PlayerScript>()._PlayerState = PlayerState.Moving;
+        gameIsStarted = true;
         yield return new WaitForSeconds(0.5f);
         TMP.text = "";       
         yield return new WaitForSeconds(secBeforeShrink);
