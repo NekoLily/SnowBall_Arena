@@ -33,6 +33,7 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+       
         Vector2 MoveDirection = new Vector2(Input.GetAxis(playerKeyCode[0]), Input.GetAxis(playerKeyCode[1]));
         Vector2 TargetDirection = new Vector2(Input.GetAxis(playerKeyCode[5]), Input.GetAxis(playerKeyCode[6]));
 
@@ -40,9 +41,8 @@ public class PlayerScript : MonoBehaviour
         float RightBumper = Input.GetAxis(playerKeyCode[4]);
 
         Trigger = Input.GetAxisRaw(playerKeyCode[2]);
-
         ChangeFireMode(LeftBumper, RightBumper);
-        if (_PlayerState == PlayerState.Pause)
+        if (_PlayerState == PlayerState.Moving)
         {
             MoveSnowBall(MoveDirection);
             Shoot(TargetDirection);
