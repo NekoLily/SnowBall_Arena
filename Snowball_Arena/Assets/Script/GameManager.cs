@@ -14,13 +14,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Vector2[] spawnPos;
     public int playerNumber{get;set;}= 2;
 
-    private void Update()
+    public void GameOver()
     {
         if (gameIsStarted)
         {
-            if (GameObject.FindGameObjectsWithTag("Player").Length == 1)
+            if (GameObject.FindGameObjectsWithTag("Player").Length == 2)
             {
+                Debug.Log("GameOver");
                 gameIsStarted = false;
+                SceneManager.LoadScene("fin");
             }
         }
     }
