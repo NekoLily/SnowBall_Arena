@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     {
         if (gameIsStarted)
         {
-            if (GameObject.FindGameObjectsWithTag("Player").Length == 1);
+            if (GameObject.FindGameObjectsWithTag("Player").Length == 1)
             {
                 gameIsStarted = false;
             }
