@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     protected Rigidbody2D _Rigidbody2D;
     [SerializeField]
     private GameObject snowBallMultiShootPrefab,snowBallBigShootPrefab,snowBallPiercingShootPrefab;
-    public PlayerState _PlayerState = PlayerState.Moving;
+    public PlayerState _PlayerState = PlayerState.Pause;
     private float shootForce;
     [SerializeField]
     private float defaultShootForce = 10,offsetIncreaseShootForce = 10, maxShootForce = 100;
@@ -42,8 +42,11 @@ public class PlayerScript : MonoBehaviour
         Trigger = Input.GetAxisRaw(playerKeyCode[2]);
 
         ChangeFireMode(LeftBumper, RightBumper);
-        MoveSnowBall(MoveDirection);
-        Shoot(TargetDirection);
+        if (_PlayerState == PlayerState.Pause)
+        {
+            MoveSnowBall(MoveDirection);
+            Shoot(TargetDirection);
+        }
     }
 
     private void MoveSnowBall(Vector2 Direction)

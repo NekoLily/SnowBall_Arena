@@ -63,6 +63,20 @@ public class GameManager : MonoBehaviour
 
     IEnumerator WaitBeforeShrinking()
     {
+        Text TMP = GameObject.Find("CountText").GetComponent<Text>();
+        yield return new WaitForSeconds(1f);
+        TMP.text = "3";
+        yield return new WaitForSeconds(1f);
+        TMP.text = "2";
+        yield return new WaitForSeconds(1f);
+        TMP.text = "1";
+        yield return new WaitForSeconds(1f);
+        TMP.text = "Start !";
+        GameObject[] playerArray = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in playerArray)
+            player.GetComponent<PlayerScript>()._PlayerState = PlayerState.Moving;
+        yield return new WaitForSeconds(0.5f);
+        TMP.text = "";       
         yield return new WaitForSeconds(secBeforeShrink);
         LimitScript.Instance.canShrink = true;
     }
