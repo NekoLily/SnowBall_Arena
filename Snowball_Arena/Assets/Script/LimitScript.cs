@@ -13,16 +13,14 @@ public class LimitScript : MonoBehaviour
       
     }
     private static LimitScript _instance;
-    public static LimitScript Instance{
-        get{
-			if (_instance == null){
-				_instance = GameObject.FindObjectOfType<LimitScript>();						
-			}		
-			return _instance;
-		}
-    }
+    public static LimitScript Instance{get{return _instance;}}
 
     private void Awake() {
+        if (_instance == null){
+			_instance = this;
+		} else if(_instance != this){
+			Destroy(this.gameObject);
+		}
         limitCollider = this.gameObject.GetComponent<EdgeCollider2D>();
     }
     private void FixedUpdate(){
