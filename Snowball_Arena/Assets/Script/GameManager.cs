@@ -46,20 +46,15 @@ public class GameManager : MonoBehaviour
     }
 
     private static GameManager _instance;
-    public static GameManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = GameObject.FindObjectOfType<GameManager>();
-            }
-            return _instance;
-        }
-    }
+    public static GameManager Instance{get{return _instance;}}
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (_instance == null){
+			_instance = this;
+            DontDestroyOnLoad(this.gameObject);
+		} else {
+			Destroy(this.gameObject);
+		}
     }
     /// <summary>
     /// Instantiate the snow prefab based on the map size

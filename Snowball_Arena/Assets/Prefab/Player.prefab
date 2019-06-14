@@ -31,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5118618371274219942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 746, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.105000004}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,7 +100,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 2.5
 --- !u!58 &3153966793758709582
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 3
 --- !u!50 &2651680914940051001
 Rigidbody2D:
   serializedVersion: 4
@@ -150,11 +150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4534011f0e7762b4588bdaf55c9f401e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snowBallMultiShootPrefab: {fileID: 6295255357666443271, guid: eba98f08a2199ea44ac31ae1932a5b56,
+  snowBallMultiShootPrefab: {fileID: 8780583148576352717, guid: eba98f08a2199ea44ac31ae1932a5b56,
     type: 3}
   snowBallBigShootPrefab: {fileID: 7069602275180419581, guid: 59d63624329302a43807cc360fb9c64f,
     type: 3}
-  snowBallPiercingShootPrefab: {fileID: 7744956199849820724, guid: 45c52040288c35a45ac747f0ca1fad40,
+  snowBallPiercingShootPrefab: {fileID: 7616475976756818843, guid: 45c52040288c35a45ac747f0ca1fad40,
     type: 3}
   _PlayerState: 1
   defaultShootForce: 200
