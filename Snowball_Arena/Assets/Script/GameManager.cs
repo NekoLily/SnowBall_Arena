@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("GameOver");
                 gameIsStarted = false;
+                SceneManager.LoadScene("fin");
             }
         }
     }

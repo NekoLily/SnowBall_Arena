@@ -23,6 +23,7 @@ public class PlayerScript : MonoBehaviour
     private float Trigger = 0;
     private int FireMode = 0;
     public string[] playerKeyCode = new string[7];
+    public Animator animator;
     private void Start()
     {
         _Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -42,17 +43,19 @@ public class PlayerScript : MonoBehaviour
 
         Trigger = Input.GetAxisRaw(playerKeyCode[2]);
         ChangeFireMode(LeftBumper, RightBumper);
-        if (_PlayerState == PlayerState.Moving)
+        if (_PlayerState != PlayerState.Pause)
         {
             MoveSnowBall(MoveDirection);
             Shoot(TargetDirection);
         }
+        animator.SetFloat("roule", GetComponent<Rigidbody2D>().velocity.y + GetComponent<Rigidbody2D>().velocity.x) ;
     }
 
     private void MoveSnowBall(Vector2 Direction)
     {
         if (Trigger == -1 && _PlayerState == PlayerState.Moving)
-        {        
+        {
+            
             if (chargeForce < maxChargeForce)
                 chargeForce += offsetIncreaseChargeForce;
             _PlayerState = PlayerState.LoadingCharge;
