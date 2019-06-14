@@ -8,11 +8,14 @@ public class WinnerScript : MonoBehaviour
     [SerializeField] private GameObject[] colorPlayers;
     [SerializeField] private Color[] playerColorArray = { Color.blue, Color.green, Color.yellow, Color.magenta };
     public void Awake()
-    {
+    {  
         
+    }
+
+    private void Start()
+    {
         string TMP = GameManager.Instance.winnerName;
         GameObject.Find("WinnerText").GetComponent<Text>().text = TMP + " Win !";
-        
         switch (TMP)
         {
             case "Player 1":
