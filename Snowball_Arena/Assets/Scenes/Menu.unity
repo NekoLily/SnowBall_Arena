@@ -2907,7 +2907,7 @@ MonoBehaviour:
   spriteHeight: 0.5
   mapWidth: 36
   spriteWidth: 0.5
-  secBeforeShrink: 5
+  secBeforeShrink: 10
   snowPrefab: {fileID: 4811178739509565871, guid: 718eddcfda526c44497d99e4e0b48fbb,
     type: 3}
   playerPrefab: {fileID: 5118618371274219942, guid: cf664197763f17b4e9be5a49df9a7882,

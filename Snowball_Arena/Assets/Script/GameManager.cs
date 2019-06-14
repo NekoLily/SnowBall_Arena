@@ -8,19 +8,22 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private float mapHeight, spriteHeight, mapWidth, spriteWidth, secBeforeShrink;
     private Transform mapParent;
+    public string winnerName{get;set;}
     [SerializeField] private GameObject snowPrefab;
     [SerializeField] private GameObject playerPrefab;
     private bool gameIsStarted = false;
+    private List<GameObject> playerAlive = new List<GameObject>();
     [SerializeField] private Vector2[] spawnPos;
     public int playerNumber { get; set; } = 2;
     [SerializeField]private Color[] playerColorArray = { Color.blue, Color.green, Color.yellow, Color.magenta};
-    public void GameOver()
+    public void TryGameOver(GameObject playerDying)
     {
         if (gameIsStarted)
         {
-            if (GameObject.FindGameObjectsWithTag("Player").Length == 2)
+            playerAlive.Remove(playerDying);
+            if (playerAlive.Count == 1)
             {
-                Debug.Log("GameOver");
+                winnerName = playerAlive[0].name;
                 gameIsStarted = false;
                 SceneManager.LoadScene("fin");
             }
@@ -93,6 +96,7 @@ public class GameManager : MonoBehaviour
 
     public void SetupGame()
     {    
+        playerAlive.Clear();
         mapParent = GameObject.Find("Map").GetComponent<Transform>();
         spawnPos = new Vector2[playerNumber];
         spawnPos = FindChildVector2(GameObject.Find("SpawnPos").GetComponent<Transform>());
@@ -100,8 +104,10 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < playerNumber; i++)
         {
             GameObject tmpGameObject = Instantiate(playerPrefab, spawnPos[i], playerPrefab.transform.rotation);
+            tmpGameObject.name = "Player " + (i+1);
             tmpGameObject.GetComponent<SpriteRenderer>().color = playerColorArray[i];
             tmpGameObject.GetComponent<PlayerScript>().playerKeyCode = KeyCodeSave.Instance.GiveOneDimension(i);
+            playerAlive.Add(tmpGameObject);
         }
         StartCoroutine(WaitBeforeShrinking());
     }
