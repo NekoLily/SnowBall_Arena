@@ -12,15 +12,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     private bool gameIsStarted = false;
     [SerializeField] private Vector2[] spawnPos;
-    public int playerNumber{get;set;}= 2;
-
-    private void Update()
+    public int playerNumber { get; set; } = 2;
+    [SerializeField]private Color[] playerColorArray = { Color.blue, Color.green, Color.yellow, Color.magenta};
+    public void GameOver()
     {
         if (gameIsStarted)
         {
-            if (GameObject.FindGameObjectsWithTag("Player").Length == 1)
+            if (GameObject.FindGameObjectsWithTag("Player").Length == 2)
             {
+                Debug.Log("GameOver");
                 gameIsStarted = false;
+                SceneManager.LoadScene("fin");
             }
         }
     }
@@ -103,6 +105,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < playerNumber; i++)
         {
             GameObject tmpGameObject = Instantiate(playerPrefab, spawnPos[i], playerPrefab.transform.rotation);
+            tmpGameObject.GetComponent<SpriteRenderer>().color = playerColorArray[i];
             tmpGameObject.GetComponent<PlayerScript>().playerKeyCode = KeyCodeSave.Instance.GiveOneDimension(i);
         }
         StartCoroutine(WaitBeforeShrinking());

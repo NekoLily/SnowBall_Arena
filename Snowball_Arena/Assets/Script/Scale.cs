@@ -14,12 +14,12 @@ public class Scale : MonoBehaviour
     {
         if (currentScale <= 200)
         {
-            transform.localScale += new Vector3(0.08F, 0.08F, 0);
+            transform.localScale += new Vector3(0.005F, 0.005F, 0);
             currentScale++;
         }
         else if (currentScale <= 400)
         {
-            transform.localScale += new Vector3(0.04F, 0.04F, 0);
+            transform.localScale += new Vector3(0.004F, 0.004F, 0);
             currentScale++;
         }
     }
@@ -67,6 +67,7 @@ public class Scale : MonoBehaviour
         }
         if (currentScale <= 0)
         {
+            GameManager.Instance.GameOver();
             Destroy(gameObject);
         }
     }
