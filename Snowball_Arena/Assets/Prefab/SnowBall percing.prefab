@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8502324123388283729}
   - component: {fileID: 827280322315466636}
   - component: {fileID: 8302829482366891638}
-  - component: {fileID: 100864443191538024}
+  - component: {fileID: 5789727113055192915}
   m_Layer: 0
   m_Name: SnowBall percing
   m_TagString: Munition
@@ -114,9 +114,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!68 &100864443191538024
-EdgeCollider2D:
+  m_Constraints: 4
+--- !u!70 &5789727113055192915
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -129,12 +129,5 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 5.018448, y: -0.2841586}
-  - {x: -2.447455, y: -0.70408225}
-  - {x: -3.8341117, y: -0.4772228}
-  - {x: -4.8598313, y: -0.08685827}
-  - {x: -2.8242314, y: 0.68873525}
-  - {x: 3.195665, y: 0.61380386}
-  - {x: 4.9677267, y: -0.30445576}
+  m_Size: {x: 8, y: 1}
+  m_Direction: 1
