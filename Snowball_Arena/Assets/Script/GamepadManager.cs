@@ -13,6 +13,7 @@ public class GamepadManager : MonoBehaviour
     public string[,] assignedJoystickButton{get;set;}
     private int currentPlayer = 0;
     [SerializeField] private GameObject[] PlayerStatusList;
+    [SerializeField] private GameObject[] PlayerImageTemplate;
     private void Awake() {
         assignedJoystickButton = new string[GameManager.Instance.playerNumber,7];
         joystickAlreadyInArray = new List<KeyCode>();
