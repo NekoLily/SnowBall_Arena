@@ -52,7 +52,7 @@ public class Scale : MonoBehaviour
         currentScale -= 5f;
         if (currentScale <= 0)
         {
-            GameManager.Instance.GameOver();
+            GameManager.Instance.TryGameOver(this.gameObject);
             Destroy(gameObject);
         }
     }
