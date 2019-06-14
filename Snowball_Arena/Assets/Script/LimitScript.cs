@@ -25,7 +25,7 @@ public class LimitScript : MonoBehaviour
     private void Awake() {
         limitCollider = this.gameObject.GetComponent<EdgeCollider2D>();
     }
-    private void FixedUpdate() {
+    private void FixedUpdate(){
         if(canShrink){
             limitCollider.edgeRadius += 0.01f;
             if(limitCollider.edgeRadius>9.9f){
@@ -38,6 +38,7 @@ public class LimitScript : MonoBehaviour
         {
             other.GetComponent<SnowScript>().GetInZone();
             other.gameObject.GetComponent<SpriteRenderer>().sprite = lave;
+            Destroy(other.gameObject.GetComponent<BoxCollider2D>());
             //Change sprite instead?
         }       
     }

@@ -2912,10 +2912,11 @@ MonoBehaviour:
     type: 3}
   playerPrefab: {fileID: 5118618371274219942, guid: cf664197763f17b4e9be5a49df9a7882,
     type: 3}
-  spawnPlayerPos1: {x: -16, y: 8}
-  spawnPlayerPos2: {x: 16, y: 8}
-  spawnPlayerPos3: {x: -16, y: -8}
-  spawnPlayerPos4: {x: 16, y: -8}
+  spawnPlayerPos:
+  - {x: -16, y: 8}
+  - {x: 16, y: 8}
+  - {x: -16, y: -8}
+  - {x: 16, y: -8}
 --- !u!4 &1129857506
 Transform:
   m_ObjectHideFlags: 0

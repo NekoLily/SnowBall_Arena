@@ -15,9 +15,16 @@ public class SnowballAmmoScript : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D Collision)
     {
-        Debug.Log(Collision.gameObject);
         if (Collision.gameObject.tag == "Player")
         {
             GetComponent<CircleCollider2D>().isTrigger = false;

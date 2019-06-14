@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     protected Rigidbody2D _Rigidbody2D;
     [SerializeField]
     private GameObject snowBallMultiShootPrefab,snowBallBigShootPrefab,snowBallPiercingShootPrefab;
-    public PlayerState _PlayerState = PlayerState.Moving;
+    public PlayerState _PlayerState = PlayerState.Pause;
     private float shootForce;
     [SerializeField]
     private float defaultShootForce = 10,offsetIncreaseShootForce = 10, maxShootForce = 100;
@@ -39,11 +39,14 @@ public class PlayerScript : MonoBehaviour
         float LeftBumper = Input.GetAxis(playerKeyCode[3]);
         float RightBumper = Input.GetAxis(playerKeyCode[4]);
 
-        Trigger = Input.GetAxis(playerKeyCode[2]);
+        Trigger = Input.GetAxisRaw(playerKeyCode[2]);
 
         ChangeFireMode(LeftBumper, RightBumper);
-        MoveSnowBall(MoveDirection);
-        Shoot(TargetDirection);
+        if (_PlayerState == PlayerState.Pause)
+        {
+            MoveSnowBall(MoveDirection);
+            Shoot(TargetDirection);
+        }
     }
 
     private void MoveSnowBall(Vector2 Direction)
@@ -74,7 +77,7 @@ public class PlayerScript : MonoBehaviour
                 shootForce += offsetIncreaseShootForce;
             _PlayerState = PlayerState.LoadingShoot;
         }
-        else if (Trigger == 0 && _PlayerState == PlayerState.LoadingShoot)
+        else if (Trigger == 0 && _PlayerState == PlayerState.LoadingShoot && TargetDirection.x != 0 && TargetDirection.y != 0)
         {
             GameObject SnowBall;
             switch (FireMode)
@@ -88,10 +91,8 @@ public class PlayerScript : MonoBehaviour
                     foreach(Rigidbody2D multishoot in SnowBall.GetComponentsInChildren<Rigidbody2D>())
                     {
                         multishoot.AddForce(TargetDirection * shootForce);
-                    }
-                    
+                    }                  
                     break;
-
                 case 2:
                     SnowBall = Instantiate<GameObject>(snowBallPiercingShootPrefab, transform.position, transform.rotation);
                     SnowBall.GetComponent<Rigidbody2D>().AddForce(TargetDirection * shootForce);

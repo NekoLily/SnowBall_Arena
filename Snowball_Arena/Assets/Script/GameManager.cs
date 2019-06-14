@@ -10,10 +10,7 @@ public class GameManager : MonoBehaviour
     private Transform mapParent;
     [SerializeField] private GameObject snowPrefab;
     [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private Vector2 spawnPlayerPos1;
-    [SerializeField] private Vector2 spawnPlayerPos2;
-    [SerializeField] private Vector2 spawnPlayerPos3;
-    [SerializeField] private Vector2 spawnPlayerPos4;
+    [SerializeField] private Vector2[] spawnPlayerPos;
     public int playerNumber{get;set;}= 2;
 
     public void IncreasePlayerNumber()
@@ -66,6 +63,20 @@ public class GameManager : MonoBehaviour
 
     IEnumerator WaitBeforeShrinking()
     {
+        Text TMP = GameObject.Find("CountText").GetComponent<Text>();
+        yield return new WaitForSeconds(1f);
+        TMP.text = "3";
+        yield return new WaitForSeconds(1f);
+        TMP.text = "2";
+        yield return new WaitForSeconds(1f);
+        TMP.text = "1";
+        yield return new WaitForSeconds(1f);
+        TMP.text = "Start !";
+        GameObject[] playerArray = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in playerArray)
+            player.GetComponent<PlayerScript>()._PlayerState = PlayerState.Moving;
+        yield return new WaitForSeconds(0.5f);
+        TMP.text = "";       
         yield return new WaitForSeconds(secBeforeShrink);
         LimitScript.Instance.canShrink = true;
     }
@@ -76,7 +87,7 @@ public class GameManager : MonoBehaviour
         AddSnowToMap();
         for (int i = 0; i < playerNumber; i++)
         {
-            GameObject tmpGameObject = Instantiate(playerPrefab, spawnPlayerPos1, playerPrefab.transform.rotation);
+            GameObject tmpGameObject = Instantiate(playerPrefab, spawnPlayerPos[i], playerPrefab.transform.rotation);
             tmpGameObject.GetComponent<PlayerScript>().playerKeyCode = KeyCodeSave.Instance.GiveOneDimension(i);
         }
         StartCoroutine(WaitBeforeShrinking());

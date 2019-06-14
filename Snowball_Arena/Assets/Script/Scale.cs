@@ -54,16 +54,18 @@ public class Scale : MonoBehaviour
     {
         if (currentScale > 200)
         {
-            transform.localScale -= new Vector3(0.05F, 0.05F, 0);
-            currentScale -= 0.5f;
+            if (transform.localScale.x > 0 && transform.localScale.y > 0)
+                transform.localScale -= new Vector3(0.8F, 0.8F, 0);
+            currentScale -= 10f;
         }
         else if (currentScale > 0)
         {
-            transform.localScale -= new Vector3(0.06F, 0.06F, 0);
-            currentScale -= 0.5f;
-        
+            if (transform.localScale.x > 0 && transform.localScale.y > 0)
+                transform.localScale -= new Vector3(0.5F, 0.5F, 0);
+            currentScale -= 10f;
+
         }
-        if (currentScale<=0)
+        if (currentScale <= 0)
         {
             Destroy(gameObject);
         }
